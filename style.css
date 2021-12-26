@@ -1,0 +1,480 @@
+/* general styling */
+
+:root {
+    --smaller: .75;
+    --color_1: #fffb86;
+    --color_3: #8698ff;
+    --color_2: #ff868e;
+    --color_1_darken: #f3ed4b;
+    --color_3_darken: #697def;
+    --color_2_darken: #f16b74;
+    --color_4_darken: #3DDC81;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    align-items: center;
+    background-color: #ffd54f;
+    display: flex;
+    font-family: 'Play', sans-serif;
+}
+
+.container {
+    color: #333;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    font-weight: normal;
+    letter-spacing: .125rem;
+    text-transform: uppercase;
+}
+
+li {
+    display: inline-block;
+    font-size: 1.5em;
+    list-style-type: none;
+    padding: 1em;
+    text-transform: uppercase;
+}
+
+li span {
+    display: block;
+    font-size: 4.5rem;
+}
+
+.emoji {
+    display: none;
+    padding: 1rem;
+}
+
+.emoji span {
+    font-size: 4rem;
+    padding: 0 .5rem;
+}
+
+.stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2rem 0;
+    margin: 0 -5%;
+    overflow: hidden;
+}
+
+.dot-collision {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 36px;
+    background-color: var(--color_4_darken);
+    color: var(--color_4_darken);
+}
+
+.dot-collision::before,
+.dot-collision::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+
+.dot-collision::before {
+    left: -27px;
+    width: 25px;
+    height: 25px;
+    border-radius: 36px;
+    background-color: #8698ff;
+    color: #8698ff;
+    animation: dotCollisionBefore 2s infinite ease-in;
+}
+
+.dot-collision::after {
+    left: 27px;
+    width: 25px;
+    height: 25px;
+    border-radius: 36px;
+    background-color: var(--color_2);
+    color: var(--color_2);
+    animation: dotCollisionAfter 2s infinite ease-in;
+    animation-delay: 1s;
+}
+
+@keyframes dotCollisionBefore {
+    0%,
+    50%,
+    75%,
+    100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-15px);
+    }
+}
+
+@keyframes dotCollisionAfter {
+    0%,
+    50%,
+    75%,
+    100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(15px);
+    }
+}
+
+.line_1 {
+    position: absolute;
+    top: -15vw;
+    right: -4vw;
+    z-index: 4;
+    border-bottom: 1px solid #505050;
+    height: 20vw;
+    width: 90vw;
+    border-radius: 100%;
+    transform: rotate(356deg);
+}
+
+.triangle_down_1,
+.triangle_down_2,
+.triangle_down_3,
+.triangle_down_4,
+.triangle_down_5,
+.triangle_down_6,
+.triangle_down_7,
+.triangle_down_8 {
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -5.5vw;
+    right: 30vw;
+    border-left: 3vw solid transparent;
+    border-right: 3vw solid transparent;
+    border-top: 6vw solid var(--color_2);
+    transform: rotate(356deg);
+}
+
+.triangle_down_2 {
+    border-top-color: var(--color_3);
+    bottom: -5.9vw;
+    right: 36.2vw;
+    transform: rotate(359deg);
+}
+
+.triangle_down_3 {
+    border-top-color: var(--color_2);
+    bottom: -5.9vw;
+    right: 42.4vw;
+    transform: rotate(-1deg);
+}
+
+.triangle_down_4 {
+    border-top-color: var(--color_3);
+    bottom: -5.9vw;
+    right: 48.5vw;
+    transform: rotate(2deg);
+}
+
+.triangle_down_5 {
+    border-top-color: var(--color_2);
+    bottom: -5.6vw;
+    right: 54.5vw;
+    transform: rotate(3deg);
+}
+
+.triangle_down_6 {
+    border-top-color: var(--color_3);
+    bottom: -5.1vw;
+    right: 60.5vw;
+    transform: rotate(5deg);
+}
+
+.triangle_down_7 {
+    border-top-color: var(--color_2);
+    bottom: -4.4vw;
+    right: 66.5vw;
+    transform: rotate(8deg);
+}
+
+.triangle_down_8 {
+    border-top-color: var(--color_3);
+    bottom: -3.4vw;
+    right: 72.5vw;
+    transform: rotate(11deg);
+}
+
+.presents {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100;
+    width: 500px;
+    position: absolute;
+    bottom: 0;
+    right: 34vw;
+}
+
+.green {
+    position: relative;
+    left: -20px;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+}
+
+.green:hover {
+    animation: 0.5s green;
+}
+
+.green .lid {
+    background: #3DDC81;
+}
+
+.green .box {
+    background-image: radial-gradient(#fff 20%, transparent 20%), radial-gradient(#fff 20%, transparent 20%);
+    background-color: #3DDC81;
+}
+
+.green .ribbon {
+    background: #F75D4C;
+}
+
+.green .ribbon::before {
+    top: 21%;
+}
+
+.green .bow {
+    background: #F75D4C;
+}
+
+.green .bow::before,
+.green .bow::after {
+    background: #F75D4C;
+}
+
+@keyframes green {
+    0% {
+        width: 100px;
+        height: 100px;
+    }
+    30% {
+        width: calc(100px + 10px);
+        height: calc(100px - 10px);
+    }
+    60% {
+        width: calc(100px - 10px);
+        height: calc(100px + 10px);
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.orange {
+    position: relative;
+    left: 20px;
+    width: 130px;
+    height: 120px;
+    z-index: 10;
+}
+
+.orange:hover {
+    animation: 0.5s orange;
+}
+
+.orange .lid {
+    background: #FFA726;
+}
+
+.orange .box {
+    background-image: radial-gradient(#2E3847 20%, transparent 20%), radial-gradient(#2E3847 20%, transparent 20%);
+    background-color: #FFA726;
+}
+
+.orange .ribbon {
+    background: #F75D4C;
+}
+
+.orange .ribbon::before {
+    top: 21%;
+}
+
+.orange .bow {
+    background: #F75D4C;
+}
+
+.orange .bow::before,
+.orange .bow::after {
+    background: #F75D4C;
+}
+
+@keyframes orange {
+    0% {
+        width: 130px;
+        height: 120px;
+    }
+    30% {
+        width: calc(130px + 10px);
+        height: calc(120px - 10px);
+    }
+    60% {
+        width: calc(130px - 10px);
+        height: calc(120px + 10px);
+    }
+    100% {
+        width: 130px;
+        height: 120px;
+    }
+}
+
+.blue {
+    position: relative;
+    left: 0;
+    width: 120px;
+    height: 160px;
+    z-index: 0;
+}
+
+.blue:hover {
+    animation: 0.5s blue;
+}
+
+.blue .lid {
+    background: #1BB5FE;
+}
+
+.blue .box {
+    background-image: radial-gradient(transparent 20%, transparent 20%), radial-gradient(transparent 20%, transparent 20%);
+    background-color: #1BB5FE;
+}
+
+.blue .ribbon {
+    background: #3DDC81;
+}
+
+.blue .ribbon::before {
+    top: 21%;
+}
+
+.blue .bow {
+    background: #3DDC81;
+}
+
+.blue .bow::before,
+.blue .bow::after {
+    background: #3DDC81;
+}
+
+@keyframes blue {
+    0% {
+        width: 120px;
+        height: 160px;
+    }
+    30% {
+        width: calc(120px + 10px);
+        height: calc(160px - 10px);
+    }
+    60% {
+        width: calc(120px - 10px);
+        height: calc(160px + 10px);
+    }
+    100% {
+        width: 120px;
+        height: 160px;
+    }
+}
+
+.present {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.present .lid {
+    height: 20%;
+    width: calc(100% + 10px);
+    border: 4px solid #2E3847;
+    border-radius: 3px;
+    box-shadow: inset 1px 2px rgba(255, 255, 255, 0.5), 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+.present .box {
+    width: 100%;
+    height: 100%;
+    background-position: 0 0, 20px 20px;
+    background-size: 40px 40px;
+    border: 4px solid #2E3847;
+    border-top: 0;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-shadow: inset -10px 5px rgba(0, 0, 0, 0.3), 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+.present .ribbon {
+    position: absolute;
+    top: -3px;
+    width: 30px;
+    height: calc(100% - 5px);
+    border: 4px solid #2E3847;
+    border-radius: 3px;
+    box-shadow: inset 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.present .ribbon::before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.present .bow {
+    position: absolute;
+    top: -20px;
+    width: 20px;
+    height: 20px;
+    border: 4px solid #2E3847;
+    border-radius: 50%;
+    box-shadow: inset 2px 2px rgba(255, 255, 255, 0.5), inset -3px -5px rgba(0, 0, 0, 0.3);
+}
+
+.present .bow::before,
+.present .bow::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 30px;
+    height: 30px;
+    border: 4px solid #2E3847;
+    border-radius: 50%;
+    box-shadow: inset 2px 2px rgba(255, 255, 255, 0.5), inset -3px -5px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+.present .bow::before {
+    left: 15px;
+}
+
+.present .bow::after {
+    right: 15px;
+}
