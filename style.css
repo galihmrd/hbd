@@ -478,3 +478,7 @@ li span {
 .present .bow::after {
     right: 15px;
 }
+
+.song {
+  visibility: hidden;
+}
