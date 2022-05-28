@@ -32,7 +32,7 @@ window.addEventListener('load', () => {
         mm = String(today.getMonth() + 1).padStart(2, "0"),
         yyyy = today.getFullYear(),
         nextYear = yyyy + 1,
-        dayMonth = "03/18/",
+        dayMonth = "09/19/",
         birthday = dayMonth + yyyy;
 
     today = mm + "/" + dd + "/" + yyyy;
